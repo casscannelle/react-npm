@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-const HomePage = () => <div>Página Inicial</div>;
-const FormPage = () => <div>Cadastre-se</div>;
-const AnswerPage = () => <div>Cadastros</div>;
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import './App.css';
+import AnswerPage from './components/AnswerPage/AnswerPage';
+import FormPage from './components/FormPage/FormPage';
+import Home from './components/Home/Home';
 
 const App = () => (
   <Router>
@@ -14,10 +14,11 @@ const App = () => (
         <li><Link to="/answers">Cadastros</Link></li>
       </ul>
     </nav>
-
-    <Route path="/" exact component={HomePage} />
-    <Route path="/form" component={FormPage} />
-    <Route path="/answers" component={AnswerPage} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/form" element={<FormPage />} />
+      <Route path="/answers" element={<AnswerPage />} />
+    </Routes>
   </Router>
 );
 
