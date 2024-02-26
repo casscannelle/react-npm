@@ -10,12 +10,12 @@ const Home = () => {
     slidesToScroll: 1,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 5000,
   };
 
   return (
     <div>
-      <h2>Carousel Component</h2>
+      <h2>Gatinhos disponíveis</h2>
       <Slider {...settings}>
         <div>
           <h3>FIRST SLIDE</h3>
@@ -27,7 +27,7 @@ const Home = () => {
           <h3>THIRD SLIDE</h3>
         </div>
         <div>
-          <h3>FORTH SLIDE</h3>
+          <h3>FOURTH SLIDE</h3>
         </div>
       </Slider>
     </div>

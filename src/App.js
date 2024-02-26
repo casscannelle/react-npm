@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import AnswerPage from './components/AnswerPage/AnswerPage';
+import AnswersPage from './components/AnswersPage/AnswersPage';
 import FormPage from './components/FormPage/FormPage';
 import Home from './components/Home/Home';
 
@@ -9,7 +9,7 @@ const App = () => (
   <Router>
     <div>
       <header>
-        <h1>Logo</h1>
+        <h1>KittyKat</h1> <h3>Adote um gatinho!</h3>
    
     <div>
       <nav>
@@ -25,7 +25,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/form" element={<FormPage />} />
-      <Route path="/answers" element={<AnswerPage />} />
+      <Route path="/answers" element={<AnswersPage />} />
     </Routes>
   </Router>
 );
