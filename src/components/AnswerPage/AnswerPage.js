@@ -1,8 +1,9 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const AnswerPage = () => {
-  // Lógica para obter a lista de respostas (pode ser obtida de um estado global, armazenamento local, servidor, etc.)
-  const respostas = []; // Substitua isso com sua lógica real de obtenção de respostas
+  const location = useLocation();
+  const respostas = location.state?.answers || []; // Obtém as respostas da localização da rota
 
   return (
     <div>

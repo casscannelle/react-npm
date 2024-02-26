@@ -1,17 +1,35 @@
-import React from 'react';
-import Carousel from '../Carousel/Carousel';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
-  const carouselItems = [
-    { src: 'url_1', alt: 'Imagem 1' },
-    { src: 'url_2', alt: 'Imagem 2' },
-    { src: 'url_3', alt: 'Imagem 3' },
-  ];
+  const settings = {
+    dots: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+  };
 
   return (
     <div>
-      <h2>Página Inicial</h2>
-      <Carousel items={carouselItems} />
+      <h2>Carousel Component</h2>
+      <Slider {...settings}>
+        <div>
+          <h3>FIRST SLIDE</h3>
+        </div>
+        <div>
+          <h3>SECOND SLIDE</h3>
+        </div>
+        <div>
+          <h3>THIRD SLIDE</h3>
+        </div>
+        <div>
+          <h3>FORTH SLIDE</h3>
+        </div>
+      </Slider>
     </div>
   );
 };
