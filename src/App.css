@@ -27,12 +27,15 @@ header nav a {
   text-decoration: none;
   padding: 6px;
   border-radius: 4px;
+  color: rgba(107, 46, 143, 0.842);
 }
 
 header nav a.active {
   background-color:rgba(107, 46, 143, 0.842);
   color: #f1f1f1;
 }
+
+
 .form_h1, h2 {
   font-family: "Poppins";
   font-size: 1.5rem;
@@ -189,6 +192,6 @@ label {
   top: 10px;
   right: 10px;
   font-size: 25px;
-  color: #cf2c2c;
+  color: rgba(107, 46, 143, 0.842);
   
 }
