@@ -2,17 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const FormPage = () => {
-  const [inputValue, setInputValue] = useState({ nome: '', email: '', gatos: 'sim', quantos: '' });
-  const [errors, setErrors] = useState({});
-  const [responses, setResponses] = useState([]);
-  
   const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState({
+    nome: '',
+    email: '',
+    gatos: 'sim',
+    quantos: ''
+  });
+  const [errors, setErrors] = useState({});
   
-
+  
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setInputValue((prevInputValue) => ({ ...prevInputValue, [name]: value }));
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,10 +25,7 @@ const FormPage = () => {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
 
-      const newResponse = { ...inputValue, timestamp: new Date() };
-      setResponses((prevResponses) => [newResponse, ...prevResponses]);
-
-      navigate('/answers', { answers: inputValue });
+      navigate('/answers', { state: { answers: inputValue } });
     } else {
       setErrors(validationErrors);
     }
@@ -38,11 +40,7 @@ const FormPage = () => {
     if (!inputValue.email.includes('@')) {
       errors.email = 'Digite um e-mail válido';
     }
-    
-    if (!inputValue.gatos) {
-      errors.gatos = 'Por favor, indique se tem gatos';
-    }
-            
+           
     return errors;
   };
 
@@ -58,7 +56,7 @@ const FormPage = () => {
   return (
     <div className='container-wrapper'>
       <div className='container-form'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1 className='form_h1'>Adote um gatinho</h1>
           <label>Nome:</label>
           <input className='form_input' type="text" name="nome" value={inputValue.nome} onChange={handleChange} />
@@ -81,7 +79,7 @@ const FormPage = () => {
           <label>Quantos?</label>
           <input className='form_input' type="number" name="quantos" value={inputValue.quantos} onChange={handleChange} min="0" />
           <br/>
-          <button className='btn' type="button" onClick={handleSubmit}>Enviar</button>
+          <button className='btn' type="submit" >Enviar</button>
           
         </form>
       </div>
